@@ -13,9 +13,9 @@
       --bg: #f5f0fa;
       --card: #ffffff;
       --accent: #f5a623;
-      --accent2: #e8294c;
+      --red: #e8294c;
       --text: #1a1a2e;
-      --muted: #888;
+      --muted: #8a8a9a;
       --border: #e8e0f0;
       --green: #16a34a;
     }
@@ -37,7 +37,7 @@
       content: '';
       position: fixed;
       width: 420px; height: 420px;
-      background: radial-gradient(circle, rgba(245,166,35,0.14) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(245,166,35,0.13) 0%, transparent 70%);
       top: -100px; right: -80px;
       border-radius: 50%;
       pointer-events: none;
@@ -46,155 +46,224 @@
       content: '';
       position: fixed;
       width: 320px; height: 320px;
-      background: radial-gradient(circle, rgba(232,41,76,0.09) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(232,41,76,0.08) 0%, transparent 70%);
       bottom: -60px; left: -60px;
       border-radius: 50%;
       pointer-events: none;
     }
 
-    .login-wrap {
+    .wrap {
       width: 100%;
       max-width: 380px;
       animation: fadeUp 0.4s ease both;
     }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
+      from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* brand */
     .brand {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
-    .brand-icon {
-      width: 62px; height: 62px;
+    .brand-mark {
+      width: 58px; height: 58px;
       background: var(--text);
       border-radius: 18px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 14px;
+      margin-bottom: 13px;
       box-shadow: 0 8px 24px rgba(26,26,46,0.2);
     }
-    .brand-icon svg { width: 30px; height: 30px; fill: var(--accent); }
+    .brand-mark svg { width: 28px; height: 28px; }
     .brand h1 {
-      font-size: 1.55rem;
+      font-size: 1.4rem;
       font-weight: 900;
-      color: var(--text);
-      letter-spacing: -0.5px;
+      letter-spacing: -0.4px;
     }
     .brand p {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
       font-weight: 600;
-      margin-top: 4px;
+      margin-top: 3px;
     }
 
-    .login-card {
+    /* card */
+    .card {
       background: var(--card);
       border-radius: 20px;
-      padding: 28px 24px;
-      box-shadow: 0 4px 32px rgba(26,26,46,0.1), 0 1px 4px rgba(26,26,46,0.04);
+      padding: 26px 22px;
+      box-shadow: 0 4px 30px rgba(26,26,46,0.09), 0 1px 4px rgba(26,26,46,0.04);
     }
-    .login-card h2 {
-      font-size: 1.15rem;
+    .card h2 {
+      font-size: 1.05rem;
       font-weight: 900;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
-    .login-card .sub {
-      font-size: 0.8rem;
+    .card .sub {
+      font-size: 0.78rem;
       color: var(--muted);
       font-weight: 600;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
+    /* error banner */
     .err-banner {
-      background: #fff0f3;
-      border: 1.5px solid #ffc1cc;
+      background: #fef2f2;
+      border: 1.5px solid #fecaca;
       border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 0.8rem;
+      padding: 10px 13px;
+      font-size: 0.78rem;
       font-weight: 700;
-      color: var(--accent2);
+      color: var(--red);
       margin-bottom: 14px;
       display: none;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
     }
     .err-banner.show { display: flex; }
+    .err-banner svg { width: 15px; height: 15px; flex-shrink: 0; }
 
-    .field-label {
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
-      color: var(--text);
-      margin-bottom: 6px;
+    /* fields */
+    .field { margin-bottom: 13px; }
+    .field label {
       display: block;
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text);
+      margin-bottom: 5px;
     }
     .field-input {
       width: 100%;
       border: 1.5px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
+      border-radius: 11px;
+      padding: 11px 13px;
       font-family: 'Nunito', sans-serif;
       font-size: 16px;
       font-weight: 700;
       color: var(--text);
       background: #fafafa;
       outline: none;
-      transition: border-color .18s, background .18s;
-      margin-bottom: 14px;
+      transition: border-color .15s, background .15s;
     }
     .field-input:focus { border-color: var(--text); background: #fff; }
 
+    /* remember me row */
+    .remember-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      cursor: pointer;
+      user-select: none;
+    }
+    /* hide native checkbox */
+    #rememberChk { display: none; }
+
+    /* custom styled box */
+    .check-box {
+      width: 20px; height: 20px;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      background: #fafafa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: border-color .15s, background .15s;
+    }
+    .check-box svg {
+      width: 11px; height: 11px;
+      stroke: #fff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0;
+      transition: opacity .15s;
+    }
+    /* when native checkbox is checked, style the sibling .check-box */
+    #rememberChk:checked + .check-box {
+      background: var(--text);
+      border-color: var(--text);
+    }
+    #rememberChk:checked + .check-box svg { opacity: 1; }
+
+    .remember-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* login button */
     .btn-login {
       width: 100%;
-      padding: 14px;
+      height: 46px;
       background: var(--text);
       color: #fff;
       border: none;
-      border-radius: 14px;
+      border-radius: 12px;
       font-family: 'Nunito', sans-serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 800;
       cursor: pointer;
-      margin-top: 4px;
-      transition: transform .15s, box-shadow .15s;
-      box-shadow: 0 4px 16px rgba(26,26,46,0.22);
+      transition: opacity .15s, transform .15s;
+      box-shadow: 0 4px 14px rgba(26,26,46,0.2);
     }
-    .btn-login:hover { transform: scale(1.02); box-shadow: 0 6px 22px rgba(26,26,46,0.3); }
-    .btn-login:active { transform: scale(0.98); }
-    .btn-login:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+    .btn-login:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-login:active { transform: translateY(0); }
+    .btn-login:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
   </style>
 </head>
 <body>
-<div class="login-wrap">
+
+<div class="wrap">
   <div class="brand">
-    <div class="brand-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 3a3 3 0 110 6 3 3 0 010-6zm0 14c-3 0-5.5-1.57-5.5-3.5S9 13 12 13s5.5 1.57 5.5 3.5S15 20 12 20z"/>
+    <div class="brand-mark">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 3h16l-1.5 7H3.5L2 3z" fill="#f5a623"/>
+        <rect x="4" y="12" width="12" height="5" rx="1.5" fill="white" opacity=".9"/>
+        <circle cx="7" cy="18" r="1" fill="white"/>
+        <circle cx="13" cy="18" r="1" fill="white"/>
       </svg>
     </div>
     <h1>ShopAdmin</h1>
     <p>Product management console</p>
   </div>
 
-  <div class="login-card">
+  <div class="card">
     <h2>Welcome back 👋</h2>
     <p class="sub">Sign in to manage your store</p>
 
     <div class="err-banner" id="errBanner">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 9a1 1 0 012 0v4a1 1 0 01-2 0V9zm1-5a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"/></svg>
       <span id="errMsg"></span>
     </div>
 
-    <label class="field-label" for="username">Username</label>
-    <input class="field-input" type="text" id="username" placeholder="Enter your username" autocomplete="username"/>
+    <div class="field">
+      <label for="username">Username</label>
+      <input class="field-input" type="text" id="username" placeholder="Enter username" autocomplete="username"/>
+    </div>
 
-    <label class="field-label" for="password">Password</label>
-    <input class="field-input" type="password" id="password" placeholder="Enter your password"
-      autocomplete="current-password" onkeydown="if(event.key==='Enter') login()"/>
+    <div class="field">
+      <label for="password">Password</label>
+      <input class="field-input" type="password" id="password" placeholder="Enter password"
+        autocomplete="current-password" onkeydown="if(event.key==='Enter') login()"/>
+    </div>
+
+    <!-- Remember Me — label wraps checkbox so clicking anywhere toggles it -->
+    <label class="remember-row" for="rememberChk">
+      <input type="checkbox" id="rememberChk"/>
+      <div class="check-box">
+        <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="1.5,6 4.5,9 10.5,3"/>
+        </svg>
+      </div>
+      <span class="remember-label">Remember me</span>
+    </label>
 
     <button class="btn-login" id="loginBtn" onclick="login()">Sign In →</button>
   </div>
@@ -205,30 +274,68 @@ const SUPABASE_URL = "https://fyfpntcdxbwrzorstuhw.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5ZnBudGNkeGJ3cnpvcnN0dWh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgxOTUyODIsImV4cCI6MjA5Mzc3MTI4Mn0.DEXblUS20JEzr9L4r1ka-PwoYCsGni2DyZ_5FM7hPIU";
 const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-async function login() {
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value;
-  const btn = document.getElementById("loginBtn");
+// ── ON LOAD: prefill if saved ──
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('adminCreds');
+  if (saved) {
+    try {
+      const { username, password } = JSON.parse(saved);
+      document.getElementById('username').value = username || '';
+      document.getElementById('password').value = password || '';
+      document.getElementById('rememberChk').checked = true;
+    } catch(e) {
+      localStorage.removeItem('adminCreds');
+    }
+  }
+});
+
+// ── ERROR ──
+function showErr(msg) {
+  document.getElementById('errMsg').textContent = msg;
+  document.getElementById('errBanner').classList.add('show');
+}
+function hideErr() {
   document.getElementById('errBanner').classList.remove('show');
+}
+
+// ── LOGIN ──
+async function login() {
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value;
+  const btn = document.getElementById('loginBtn');
+  hideErr();
 
   if (!username || !password) {
-    document.getElementById('errMsg').textContent = "Please fill in all fields.";
-    document.getElementById('errBanner').classList.add('show');
+    showErr('Please enter your username and password.');
     return;
   }
 
-  btn.disabled = true; btn.textContent = "Signing in…";
-  const { data, error } = await db.from("users").select("*")
-    .eq("username", username).eq("password", password).single();
-  btn.disabled = false; btn.textContent = "Sign In →";
+  btn.disabled = true;
+  btn.textContent = 'Signing in…';
+
+  const { data, error } = await db
+    .from('users').select('*')
+    .eq('username', username)
+    .eq('password', password)
+    .single();
+
+  btn.disabled = false;
+  btn.textContent = 'Sign In →';
 
   if (error || !data) {
-    document.getElementById('errMsg').textContent = "Invalid username or password.";
-    document.getElementById('errBanner').classList.add('show');
+    showErr('Invalid username or password.');
     return;
   }
-  localStorage.setItem("user", JSON.stringify(data));
-  window.location.href = "admin.html";
+
+  // save or clear credentials based on remember me
+  if (document.getElementById('rememberChk').checked) {
+    localStorage.setItem('adminCreds', JSON.stringify({ username, password }));
+  } else {
+    localStorage.removeItem('adminCreds');
+  }
+
+  localStorage.setItem('user', JSON.stringify(data));
+  window.location.href = 'admin.html';
 }
 </script>
 </body>
