@@ -140,15 +140,11 @@
     }
 
     @media (min-width: 580px) {
-      .grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
+      .grid { grid-template-columns: repeat(4, 1fr); }
     }
 
     @media (min-width: 900px) {
-      .grid {
-        grid-template-columns: repeat(5, 1fr);
-      }
+      .grid { grid-template-columns: repeat(5, 1fr); }
     }
 
     .p-card {
@@ -234,29 +230,10 @@
       gap: 3px;
     }
 
-    .tag-active {
-      background: #dcfce7;
-      color: #15803d;
-      border-color: #bbf7d0;
-    }
-
-    .tag-inactive {
-      background: #fef2f2;
-      color: var(--red);
-      border-color: #fecaca;
-    }
-
-    .tag-instock {
-      background: #eff6ff;
-      color: #1d4ed8;
-      border-color: #bfdbfe;
-    }
-
-    .tag-outstock {
-      background: #fef2f2;
-      color: var(--red);
-      border-color: #fecaca;
-    }
+    .tag-active   { background: #dcfce7; color: #15803d; border-color: #bbf7d0; }
+    .tag-inactive { background: #fef2f2; color: var(--red); border-color: #fecaca; }
+    .tag-instock  { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    .tag-outstock { background: #fef2f2; color: var(--red); border-color: #fecaca; }
 
     .overlay {
       display: none;
@@ -268,9 +245,7 @@
       justify-content: center;
     }
 
-    .overlay.open {
-      display: flex;
-    }
+    .overlay.open { display: flex; }
 
     .sheet {
       background: #fff;
@@ -315,6 +290,9 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
     }
 
     .img-box img {
@@ -332,18 +310,9 @@
       margin: 12px 0 7px;
     }
 
-    .fg {
-      display: grid;
-      gap: 8px;
-    }
-
-    .fg.c2 {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .fg.c3 {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+    .fg { display: grid; gap: 8px; }
+    .fg.c2 { grid-template-columns: 1fr 1fr; }
+    .fg.c3 { grid-template-columns: 1fr 1fr 1fr; }
 
     .fld {
       display: flex;
@@ -371,6 +340,129 @@
       width: 100%;
     }
 
+    /* ── Upload area ── */
+    .upload-area {
+      border: 1.5px dashed var(--border);
+      border-radius: 10px;
+      background: #fafafa;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .upload-area:hover {
+      border-color: var(--text);
+      background: #f0ebf8;
+    }
+
+    .upload-area input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      font-size: 0; /* hide file name text */
+    }
+
+    .upload-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--bg);
+      border-radius: 9px;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .upload-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .upload-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .upload-sub {
+      font-size: 0.64rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .upload-progress {
+      display: none;
+      height: 4px;
+      border-radius: 99px;
+      background: var(--border);
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .upload-progress.show { display: block; }
+
+    .upload-progress-bar {
+      height: 100%;
+      background: var(--text);
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .upload-status {
+      font-size: 0.65rem;
+      font-weight: 800;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .upload-status.show { display: block; }
+    .upload-status.ok   { color: var(--green); }
+    .upload-status.err  { color: var(--red); }
+
+    /* URL input row */
+    .url-row {
+      display: flex;
+      gap: 6px;
+      align-items: stretch;
+    }
+
+    .url-row input {
+      flex: 1;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      background: #fafafa;
+      outline: none;
+    }
+
+    .url-clear {
+      height: auto;
+      padding: 0 12px;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--muted);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
     .btn-cancel,
     .btn-save,
     .btn-delete {
@@ -389,17 +481,8 @@
       padding: 0 16px;
     }
 
-    .btn-save {
-      flex: 1;
-      background: var(--text);
-      color: #fff;
-    }
-
-    .btn-delete {
-      flex: 1;
-      background: var(--red);
-      color: #fff;
-    }
+    .btn-save   { flex: 1; background: var(--text); color: #fff; }
+    .btn-delete { flex: 1; background: var(--red);  color: #fff; }
 
     .toast-wrap {
       position: fixed;
@@ -423,8 +506,8 @@
     }
 
     .t-success { background: #16a34a; }
-    .t-error { background: var(--red); }
-    .t-warn { background: var(--accent); }
+    .t-error   { background: var(--red); }
+    .t-warn    { background: var(--accent); }
   </style>
 </head>
 
@@ -447,10 +530,7 @@
 
   <div class="header-actions">
     <button class="add-btn" onclick="openAdd()">Add</button>
-
-    <button class="icon-btn" onclick="logout()">
-      ⎋
-    </button>
+    <button class="icon-btn" onclick="logout()">⎋</button>
   </div>
 </header>
 
@@ -459,7 +539,6 @@
     <span class="section-title">Products</span>
     <span class="count-pill" id="productCount">—</span>
   </div>
-
   <div class="grid" id="productGrid"></div>
 </main>
 
@@ -476,19 +555,40 @@
 
       <input type="hidden" id="pid"/>
 
-      <div class="img-box" id="imgBox">
-        Image Preview
-      </div>
+      <!-- Preview -->
+      <div class="img-box" id="imgBox">Image Preview</div>
 
+      <!-- IMAGE SECTION -->
       <div class="sec-label">Image</div>
 
-      <div class="fg">
-        <div class="fld">
-          <label>URL</label>
+      <!-- Upload from device -->
+      <div class="fld" style="margin-bottom:8px;">
+        <label>Upload from Device <span style="color:var(--muted);font-weight:700;text-transform:none;">(max 2 MB)</span></label>
+        <div class="upload-area" id="uploadArea">
+          <div class="upload-icon">📁</div>
+          <div class="upload-info">
+            <div class="upload-title" id="uploadTitle">Choose a file or drag &amp; drop</div>
+            <div class="upload-sub">JPG, PNG, WEBP · Max 2 MB</div>
+          </div>
+          <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp,image/gif"
+                 onchange="handleFileSelect(this)">
+        </div>
+        <div class="upload-progress" id="uploadProgress">
+          <div class="upload-progress-bar" id="uploadBar"></div>
+        </div>
+        <div class="upload-status" id="uploadStatus"></div>
+      </div>
+
+      <!-- URL input -->
+      <div class="fld">
+        <label>Or paste URL</label>
+        <div class="url-row">
           <input type="url" id="image" placeholder="https://..." oninput="previewImg(this.value)">
+          <button class="url-clear" onclick="clearImage()">Clear</button>
         </div>
       </div>
 
+      <!-- DETAILS -->
       <div class="sec-label">Details</div>
 
       <div class="fg">
@@ -503,7 +603,6 @@
           <label>Category</label>
           <input type="text" id="category">
         </div>
-
         <div class="fld">
           <label>Offer</label>
           <select id="offer">
@@ -513,6 +612,7 @@
         </div>
       </div>
 
+      <!-- PRICING -->
       <div class="sec-label">Pricing</div>
 
       <div class="fg c3">
@@ -520,44 +620,37 @@
           <label>Price</label>
           <input type="number" id="price">
         </div>
-
         <div class="fld">
           <label>MRP</label>
           <input type="number" id="originalPrice">
         </div>
-
         <div class="fld">
           <label>Discount</label>
           <input type="number" id="discount">
         </div>
       </div>
 
-      <!-- UPDATED STATUS SECTION -->
-
+      <!-- STATUS -->
       <div class="sec-label">Status</div>
 
       <div class="fg c2">
-
         <div class="fld">
           <label>Active</label>
-
           <select id="active">
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
         </div>
-
         <div class="fld">
           <label>Stock Out</label>
-
           <select id="stockout">
             <option value="no">No</option>
             <option value="yes">Yes</option>
           </select>
         </div>
-
       </div>
 
+      <!-- EXTRA -->
       <div class="sec-label">Extra</div>
 
       <div class="fg c2">
@@ -565,7 +658,6 @@
           <label>Badge</label>
           <input type="text" id="badge">
         </div>
-
         <div class="fld">
           <label>Super Badge</label>
           <input type="text" id="superbadge">
@@ -579,7 +671,7 @@
         </div>
       </div>
 
-    </div>
+    </div><!-- /sheet-body -->
 
     <div class="sheet-foot">
       <button class="btn-cancel" onclick="closeProd()">Cancel</button>
@@ -593,27 +685,36 @@
 <div class="toast-wrap" id="toastWrap"></div>
 
 <script>
-const SUPABASE_URL = "https://fyfpntcdxbwrzorstuhw.supabase.co";
+/* ─────────────────────────────────────────────
+   CONFIG
+───────────────────────────────────────────── */
+const SUPABASE_URL      = "https://fyfpntcdxbwrzorstuhw.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5ZnBudGNkeGJ3cnpvcnN0dWh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgxOTUyODIsImV4cCI6MjA5Mzc3MTI4Mn0.DEXblUS20JEzr9L4r1ka-PwoYCsGni2DyZ_5FM7hPIU";
 const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+// Cloudinary config
+const CLOUDINARY_CLOUD_NAME = "df9zuq7dl"; // derived from API key prefix / update if needed
+const CLOUDINARY_API_KEY    = "398174129153165";
+const CLOUDINARY_API_SECRET = "yoe69Mqox3ws2uv9_NF5zmfoTBk";
+const CLOUDINARY_UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
+
+/* ─────────────────────────────────────────────
+   TOAST
+───────────────────────────────────────────── */
 function toast(msg, type = 'success') {
   const wrap = document.getElementById('toastWrap');
-
   const t = document.createElement('div');
   t.className = `toast t-${type}`;
   t.innerText = msg;
-
   wrap.appendChild(t);
-
-  setTimeout(() => {
-    t.remove();
-  }, 2500);
+  setTimeout(() => t.remove(), 2500);
 }
 
+/* ─────────────────────────────────────────────
+   IMAGE PREVIEW / CLEAR
+───────────────────────────────────────────── */
 function previewImg(url) {
   const box = document.getElementById('imgBox');
-
   if (url && url.startsWith('http')) {
     box.innerHTML = `<img src="${url}" />`;
   } else {
@@ -621,66 +722,177 @@ function previewImg(url) {
   }
 }
 
-function resetForm() {
+function clearImage() {
+  document.getElementById('image').value = '';
+  previewImg('');
+  resetUploadUI();
+}
 
-  [
-    'pid',
-    'name',
-    'category',
-    'price',
-    'originalPrice',
-    'discount',
-    'image',
-    'badge',
-    'superbadge',
-    'sold'
-  ].forEach(id => {
-    document.getElementById(id).value = '';
+function resetUploadUI() {
+  document.getElementById('uploadTitle').textContent = 'Choose a file or drag & drop';
+  document.getElementById('uploadProgress').classList.remove('show');
+  document.getElementById('uploadBar').style.width = '0%';
+  const st = document.getElementById('uploadStatus');
+  st.className = 'upload-status';
+  st.textContent = '';
+  document.getElementById('fileInput').value = '';
+}
+
+/* ─────────────────────────────────────────────
+   SHA-1 (for Cloudinary signed upload)
+───────────────────────────────────────────── */
+async function sha1(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-1', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+/* ─────────────────────────────────────────────
+   CLOUDINARY UPLOAD
+───────────────────────────────────────────── */
+async function uploadToCloudinary(file) {
+  const timestamp = Math.floor(Date.now() / 1000);
+
+  // Build signature: sign timestamp + api_key
+  const strToSign = `timestamp=${timestamp}${CLOUDINARY_API_SECRET}`;
+  const signature = await sha1(strToSign);
+
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('api_key', CLOUDINARY_API_KEY);
+  formData.append('timestamp', timestamp);
+  formData.append('signature', signature);
+
+  // Show progress bar (simulate while fetching, since XHR gives real progress)
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('POST', CLOUDINARY_UPLOAD_URL, true);
+
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable) {
+        const pct = Math.round((e.loaded / e.total) * 100);
+        document.getElementById('uploadBar').style.width = pct + '%';
+      }
+    };
+
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        const res = JSON.parse(xhr.responseText);
+        resolve(res.secure_url);
+      } else {
+        try {
+          const err = JSON.parse(xhr.responseText);
+          reject(new Error(err.error?.message || 'Upload failed'));
+        } catch {
+          reject(new Error('Upload failed'));
+        }
+      }
+    };
+
+    xhr.onerror = () => reject(new Error('Network error during upload'));
+
+    xhr.send(formData);
   });
+}
 
-  document.getElementById('offer').value = 'yes';
+/* ─────────────────────────────────────────────
+   FILE SELECT HANDLER
+───────────────────────────────────────────── */
+async function handleFileSelect(input) {
+  const file = input.files[0];
+  if (!file) return;
 
-  document.getElementById('active').value = 'yes';
+  // Validate type
+  const allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+  if (!allowed.includes(file.type)) {
+    toast('Only JPG, PNG, WEBP, GIF allowed', 'error');
+    input.value = '';
+    return;
+  }
+
+  // Validate size (2 MB)
+  if (file.size > 2 * 1024 * 1024) {
+    toast('Image must be under 2 MB', 'warn');
+    input.value = '';
+    return;
+  }
+
+  // Update UI
+  document.getElementById('uploadTitle').textContent = file.name;
+  document.getElementById('uploadProgress').classList.add('show');
+  document.getElementById('uploadBar').style.width = '0%';
+
+  const status = document.getElementById('uploadStatus');
+  status.className = 'upload-status show';
+  status.textContent = 'Uploading…';
+
+  try {
+    const url = await uploadToCloudinary(file);
+
+    // Put URL into the input & preview
+    document.getElementById('image').value = url;
+    previewImg(url);
+
+    document.getElementById('uploadBar').style.width = '100%';
+    status.className = 'upload-status show ok';
+    status.textContent = '✓ Uploaded successfully';
+
+    toast('Image uploaded!', 'success');
+
+  } catch (err) {
+    status.className = 'upload-status show err';
+    status.textContent = '✗ ' + err.message;
+    toast(err.message, 'error');
+  }
+}
+
+/* ─────────────────────────────────────────────
+   FORM RESET
+───────────────────────────────────────────── */
+function resetForm() {
+  ['pid','name','category','price','originalPrice','discount','image','badge','superbadge','sold']
+    .forEach(id => { document.getElementById(id).value = ''; });
+
+  document.getElementById('offer').value   = 'yes';
+  document.getElementById('active').value  = 'yes';
   document.getElementById('stockout').value = 'no';
 
   previewImg('');
+  resetUploadUI();
 }
 
+/* ─────────────────────────────────────────────
+   MODAL OPEN / CLOSE
+───────────────────────────────────────────── */
 function openAdd() {
   resetForm();
-
   document.getElementById('sheetTitle').textContent = 'Add Product';
-  document.getElementById('saveBtn').textContent = 'Add Product';
-
+  document.getElementById('saveBtn').textContent     = 'Add Product';
   document.getElementById('prodOverlay').classList.add('open');
 }
 
 function openEdit(p) {
-
   resetForm();
-
   document.getElementById('sheetTitle').textContent = 'Edit Product';
-  document.getElementById('saveBtn').textContent = 'Update';
+  document.getElementById('saveBtn').textContent     = 'Update';
 
-  document.getElementById('pid').value = p.id;
-  document.getElementById('name').value = p.name || '';
-  document.getElementById('category').value = p.category || '';
-  document.getElementById('price').value = p.price || '';
+  document.getElementById('pid').value           = p.id;
+  document.getElementById('name').value          = p.name          || '';
+  document.getElementById('category').value      = p.category      || '';
+  document.getElementById('price').value         = p.price         || '';
   document.getElementById('originalPrice').value = p.originalPrice || '';
-  document.getElementById('discount').value = p.discount || '';
-  document.getElementById('image').value = p.image || '';
-  document.getElementById('badge').value = p.badge || '';
-  document.getElementById('superbadge').value = p.superbadge || '';
-  document.getElementById('sold').value = p.sold || '';
-  document.getElementById('offer').value = p.offer || 'yes';
-
-  /* UPDATED */
-
-  document.getElementById('active').value = p.active || 'yes';
-  document.getElementById('stockout').value = p.stockout || 'no';
+  document.getElementById('discount').value      = p.discount      || '';
+  document.getElementById('image').value         = p.image         || '';
+  document.getElementById('badge').value         = p.badge         || '';
+  document.getElementById('superbadge').value    = p.superbadge    || '';
+  document.getElementById('sold').value          = p.sold          || '';
+  document.getElementById('offer').value         = p.offer         || 'yes';
+  document.getElementById('active').value        = p.active        || 'yes';
+  document.getElementById('stockout').value      = p.stockout      || 'no';
 
   previewImg(p.image || '');
-
   document.getElementById('prodOverlay').classList.add('open');
 }
 
@@ -688,11 +900,12 @@ function closeProd() {
   document.getElementById('prodOverlay').classList.remove('open');
 }
 
+/* ─────────────────────────────────────────────
+   SAVE
+───────────────────────────────────────────── */
 async function saveProduct() {
-
-  const id = document.getElementById('pid').value;
-
-  const name = document.getElementById('name').value.trim();
+  const id    = document.getElementById('pid').value;
+  const name  = document.getElementById('name').value.trim();
   const price = document.getElementById('price').value;
 
   if (!name || !price) {
@@ -701,54 +914,36 @@ async function saveProduct() {
   }
 
   const payload = {
-
-    user_id: user.id,
-
+    user_id:       user.id,
     name,
-
-    category: document.getElementById('category').value.trim(),
-
-    price: Number(price),
-
+    category:      document.getElementById('category').value.trim(),
+    price:         Number(price),
     originalPrice: Number(document.getElementById('originalPrice').value),
-
-    discount: Number(document.getElementById('discount').value),
-
-    image: document.getElementById('image').value.trim(),
-
-    badge: document.getElementById('badge').value.trim(),
-
-    superbadge: document.getElementById('superbadge').value.trim(),
-
-    sold: document.getElementById('sold').value.trim(),
-
-    offer: document.getElementById('offer').value,
-
-    /* UPDATED */
-
-    active: document.getElementById('active').value,
-
-    stockout: document.getElementById('stockout').value
+    discount:      Number(document.getElementById('discount').value),
+    image:         document.getElementById('image').value.trim(),
+    badge:         document.getElementById('badge').value.trim(),
+    superbadge:    document.getElementById('superbadge').value.trim(),
+    sold:          document.getElementById('sold').value.trim(),
+    offer:         document.getElementById('offer').value,
+    active:        document.getElementById('active').value,
+    stockout:      document.getElementById('stockout').value,
   };
 
   const res = id
     ? await db.from('products').update(payload).eq('id', id)
     : await db.from('products').insert([payload]);
 
-  if (res.error) {
-    toast('Error saving product', 'error');
-    return;
-  }
+  if (res.error) { toast('Error saving product', 'error'); return; }
 
   closeProd();
-
   toast(id ? 'Product updated' : 'Product added');
-
   loadProducts();
 }
 
+/* ─────────────────────────────────────────────
+   LOAD PRODUCTS
+───────────────────────────────────────────── */
 async function loadProducts() {
-
   const grid = document.getElementById('productGrid');
 
   const { data, error } = await db
@@ -757,65 +952,33 @@ async function loadProducts() {
     .eq('user_id', user.id)
     .order('id', { ascending: true });
 
-  if (error) {
-    toast('Failed to load', 'error');
-    return;
-  }
+  if (error) { toast('Failed to load', 'error'); return; }
 
-  document.getElementById('productCount').textContent =
-    `${data.length} items`;
+  document.getElementById('productCount').textContent = `${data.length} items`;
 
-  if (!data.length) {
-    grid.innerHTML = `<p>No products found</p>`;
-    return;
-  }
+  if (!data.length) { grid.innerHTML = `<p>No products found</p>`; return; }
 
   grid.innerHTML = data.map(p => {
-
-    /* UPDATED */
-
-    const sTag = p.active === 'no'
-      ? `<span class="tag tag-inactive">Inactive</span>`
-      : `<span class="tag tag-active">Active</span>`;
-
-    const stTag = p.stockout === 'yes'
-      ? `<span class="tag tag-outstock">Out of Stock</span>`
-      : `<span class="tag tag-instock">In Stock</span>`;
-
-    const sale = p.offer === 'yes'
-      ? `<div class="sale-badge">Sale</div>`
-      : '';
+    const sTag  = p.active   === 'no'  ? `<span class="tag tag-inactive">Inactive</span>`    : `<span class="tag tag-active">Active</span>`;
+    const stTag = p.stockout === 'yes' ? `<span class="tag tag-outstock">Out of Stock</span>` : `<span class="tag tag-instock">In Stock</span>`;
+    const sale  = p.offer    === 'yes' ? `<div class="sale-badge">Sale</div>` : '';
 
     return `
-
-    <div class="p-card"
-      onclick='openEdit(${JSON.stringify(p).replace(/'/g,"&#39;")})'>
-
-      ${p.image
-        ? `<img class="p-img" src="${p.image}" loading="lazy">`
-        : `<div class="p-img"></div>`
-      }
-
+    <div class="p-card" onclick='openEdit(${JSON.stringify(p).replace(/'/g,"&#39;")})'>
+      ${p.image ? `<img class="p-img" src="${p.image}" loading="lazy">` : `<div class="p-img"></div>`}
       ${sale}
-
       <div class="p-info">
-
         <div class="p-name">${p.name}</div>
-
         <div class="p-price">₹${p.price}</div>
-
-        <div class="pill-row">
-          ${sTag}
-          ${stTag}
-        </div>
-
+        <div class="pill-row">${sTag}${stTag}</div>
       </div>
-
-    </div>
-    `;
+    </div>`;
   }).join('');
 }
 
+/* ─────────────────────────────────────────────
+   LOGOUT
+───────────────────────────────────────────── */
 function logout() {
   localStorage.removeItem('user');
   window.location.href = 'login.html';
